@@ -1,0 +1,32 @@
+{
+    "parser": "babel-eslint",
+    "extends": ["airbnb"],
+    "plugins": [
+        "react-native"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "env": {
+        "browser": true,
+        "node": true
+    },
+    "rules": {
+        "indent": ["warn", 4],
+        "quotes": 0,
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".js"] }],
+        "react/jsx-indent-props": ["error", 4],
+        "no-underscore-dangle": 0,
+        "camelcase": 0,
+        "arrow-parens": ["error", "always"],
+        "max-len": 0,
+
+        "react-native/no-unused-styles": 2,
+        "react-native/split-platform-components": 1,
+        "react-native/no-inline-styles": 0,
+        "react-native/no-color-literals": 0
+    }
+}
