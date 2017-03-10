@@ -46,9 +46,9 @@ class SelectInput extends React.Component {
         if (data.value) displayValue = data.value[displayTextKey];
 
         return (
-            <View>
-                <View style={styles.container}>
-                    <Label label={label} required={required} error={hasError} />
+            <View style={styles.container}>
+                <Label label={label} required={required} error={hasError} />
+                <View>
                     <View style={styles.inpBtnContainer}>
                         <TextInput
                             style={styles.input}
@@ -66,25 +66,24 @@ class SelectInput extends React.Component {
                             }}
                         />
                     </View>
-                    <ErrorText errorText={data.error} />
+                    <Modal
+                        animationType={'slide'}
+                        transparent={false}
+                        visible={this.state.showModal}
+                        onRequestClose={this.closeModal}
+                    >
+                        <SelectList
+                            data={listData}
+                            displayTextKey={displayTextKey}
+                            searchOptions={searchOptions}
+                            selectedItem={data.value}
+                            name={name}
+                            handleSelection={handler}
+                            closeModal={this.closeModal}
+                        />
+                    </Modal>
                 </View>
-
-                <Modal
-                    animationType={'slide'}
-                    transparent={false}
-                    visible={this.state.showModal}
-                    onRequestClose={this.closeModal}
-                >
-                    <SelectList
-                        data={listData}
-                        displayTextKey={displayTextKey}
-                        searchOptions={searchOptions}
-                        selectedItem={data.value}
-                        name={name}
-                        handleSelection={handler}
-                        closeModal={this.closeModal}
-                    />
-                </Modal>
+                <ErrorText errorText={data.error} />
             </View>
         );
     }
